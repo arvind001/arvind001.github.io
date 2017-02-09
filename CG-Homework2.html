@@ -52,8 +52,8 @@ void main() {
       vec3 P = V + t.x * W;                      // Point on sphere
       vec3 N = normalize(P - S.xyz);             // Surface normal
       float brightness = max(0., dot(N, LDir));
-      brightness = mix(.1, brightness, 1.);      // Diffuse surface
-      c = vec3(.1,1.,.1) * brightness;
+      brightness = mix(0., brightness, .5);      // Diffuse surface
+      c = vec3(1.1,.1,.1) - brightness;
    }
 
    vec3 V2 = vec3(0, 0., 0.);
@@ -65,13 +65,13 @@ void main() {
 
    if (t2.x > 0.) {
       vec3 P = V + t2.x * W;                      // Point on sphere
-      vec3 N = normalize(P - S2.xyz);             // Surface normal
+      vec3 N = normalize((P) - S2.xyz);             // Surface normal
       float brightness = max(0., dot(N, LDir2));
-      brightness = mix(.1, brightness, .5);      // Diffuse surface
-      c = vec3(.1,3.,5.1) * brightness;
+      brightness = mix(.2, brightness, .5);      // Diffuse surface
+      c = vec3(1.1,.1,.1) * brightness;
    }
 
-   gl_FragColor = vec4(sqrt(c), 1.);           // Final pixel color
+   gl_FragColor = vec4(sqrt(c), 1.);               // Final pixel color
 }
 </script>
 
