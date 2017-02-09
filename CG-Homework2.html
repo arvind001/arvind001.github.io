@@ -10,12 +10,16 @@
 
 // YOU PROBABLY WON'T NEED TO CHANGE THE VERTEX SHADER FOR NOW.
 
+
+
+
    attribute vec3 aPos;
    varying   vec3 vPos;
    void main() {
       gl_Position = vec4(aPos, 1.0);  // Set position of vertex in image.
       vPos = aPos;                    // Copy pos to a varying variable to
    }                                  //   interpolate it across pixels.
+
 </script>
 
 <script id='fs_script' type='x-shader/x-fragment'>
@@ -43,7 +47,6 @@ void main() {
    vec3 V = vec3(0.,0.,0.);                      // Ray origin
    vec3 W = normalize(vec3(vPos.xy, -3.));       // Ray direction
    vec4 S = vec4(cos(uTime),sin(uTime),-5., (.5));                 // Sphere x,y,z,r
-
    vec2 t = raytraceSphere(V, W, S);             // Ray trace sphere
    if (t.x > 0.) {
       vec3 P = V + t.x * W;                      // Point on sphere
@@ -68,10 +71,9 @@ void main() {
       c = vec3(.1,3.,5.1) * brightness;
    }
 
-   gl_FragColor = vec4(sqrt(c), 1.);             // Final pixel color
+   gl_FragColor = vec4(sqrt(c), 1.);           // Final pixel color
 }
-//For some reason the animation is not showing up and I am not sure why.
-}</script>
+</script>
 
 <script>
 
