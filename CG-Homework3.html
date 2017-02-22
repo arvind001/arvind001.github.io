@@ -17,26 +17,6 @@
 
 <script id='fss_script' type='x-shader/x-fragment'>
 
----------------------------------------------------------------------
-varying vec3 vPos;                               // Position in image
-uniform float uTime;                             // Time
-
-void main() {
-   vec3 c = vec3(.01,.01,.04);                   // Dark background
-
-   gl_FragColor = vec4(sqrt(c), 1.);             // Final pixel color
-}
----------------------------------------------------------------------
-BREAKDOWN OF A RAY TRACER.
-
-<font color=#ffaaaa><i><b>NOTE:</b> All the code <font color=white><!!
->(in white above-left)</font> is live-editable.
-
-When you make a coding error, the code will turn <font color=#ffffa0
->yellow.</i></font></font>
----------------------------------------------------------------------
-      xx
----------------------------------------------------------------------
 
 
 varying vec3 vPos;                               // Position in image
