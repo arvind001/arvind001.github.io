@@ -7,18 +7,22 @@
 </body>
 
 <script id='vs_script' type='x-shader/x-vertex'>
+
+// YOU PROBABLY WON'T NEED TO CHANGE THE VERTEX SHADER FOR NOW.
+
+
+
+
    attribute vec3 aPos;
    varying   vec3 vPos;
    void main() {
-      gl_Position = vec4(aPos, 1.0);
-      vPos = aPos;
-   }
+      gl_Position = vec4(aPos, 1.0);  // Set position of vertex in image.
+      vPos = aPos;                    // Copy pos to a varying variable to
+   }                                  //   interpolate it across pixels.
+
 </script>
 
-<script id='fss_script' type='x-shader/x-fragment'>
-
----------------------------------------------------------------------
-
+<script id='fs_script' type='x-shader/x-fragment'>
 
 varying vec3 vPos;                               // Position in image
 uniform float uTime;                             // Time
@@ -83,26 +87,14 @@ void main() {
 
    gl_FragColor = vec4(sqrt(c), 1.);             // Final pixel color
 }
-
----------------------------------------------------------------------
-
 </script>
 
 <script>
-addTextEditor(fss_script.innerHTML.split('---------------------------------------------------------------------'),
-              function() { canvas1.setFragmentShader(this.value); });
 
-declareUniform('uSpheres', 'vec4', 3);
-declareUniform('uSColors', 'vec4', 3);
-declareUniform('uLDirs', 'vec3', 2);
-declareUniform('uLColors', 'vec3', 2);
+var vs = vs_script.innerHTML, fs = fs_script.innerHTML;
 
-gl_start(canvas1, vs_script.innerHTML, function() {
-   var s = .5 * Math.sin(2 * time);
-   setUniform('uSpheres', [-.5,.4,-4+s,.5, .5,.4,-4-s,.5, s,-.5,-4,.5]);
-   setUniform('uSColors', [1,.3,.3,2, .3,.3,1,6, 1,.7,0,10]);
-   setUniform('uLDirs', [1,1,1, -1,-1,-1]);
-   setUniform('uLColors', [.5,.5,1, .2,.1,.1]);
-});
+addTextEditor(fs, function() { canvas1.setShaders(vs, this.value); });
+
+gl_start(canvas1, vs, fs);
 
 </script>
