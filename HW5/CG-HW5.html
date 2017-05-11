@@ -19,8 +19,9 @@ Hi, I am a bird who has had its morning espresso.
 
 
 <tr>
-<td><canvas id=canvas3 width=400 height=300></td>
+<td><canvas id=canvas3 width=400 height=300 onclick="flip()"></td>
 <td width=50></td>
+<td><canvas id=canvas4 width=400 height=300></td>
 <td>
 I am a beautiful landscape.
 </td>
@@ -30,6 +31,8 @@ I am a beautiful landscape.
 
 <script src=drawlib1.js></script>
 <script>
+    var canvas = document.getElementById('canvas3');
+    context = canvas.getContext('2d');
     /*
    canvas1.update = function(g) {
       var blue = 128 + Math.floor(128 * Math.sin(10 * time));
@@ -80,9 +83,9 @@ I am a beautiful landscape.
 
       //g.stroke();
    }
+   */
 
-
-   canvas2.update = function(g) {
+   canvas4.update = function(g) {
       g.lineWidth = 5;
 
       g.beginPath();
@@ -146,8 +149,11 @@ I am a beautiful landscape.
       g.lineTo(x+50, y-30);
       g.stroke();
 
+
+
+
    }
-   */
+
 
    canvas3.update = function(g) {
      g.lineWidth = 5;
@@ -272,5 +278,9 @@ I am a beautiful landscape.
      */
    }
 
-   draw2DCanvases([ canvas3 ]);
+   function flip(){
+     canvas.clearRect(0, 0, canvas.width, canvas.height);
+   }
+
+   draw2DCanvases([ canvas3, canvas4 ]);
 </script>

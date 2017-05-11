@@ -1,0 +1,297 @@
+<body>
+    <canvas id="canvas" width="1500" height="1000"></canvas>
+
+
+</body>
+<script>
+var Canvas = document.getElementById("canvas");
+    var ctx = Canvas.getContext("2d");
+
+    var startAngle = (2*Math.PI);
+    var endAngle = (Math.PI*1.5);
+    var currentAngle = 0;
+
+var oldTime = getTime();
+
+function getTime() {
+    return (new Date()).getTime();
+}
+
+    var raf = window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        window.oRequestAnimationFrame;
+
+    function Update(){
+        var newTime = getTime(),
+            diff = newTime - oldTime;
+
+        oldTime = newTime;
+        //var flag = 3;
+
+        //Clears
+        ctx.clearRect(0,0,Canvas.width,Canvas.height);
+
+        //Drawing
+        ctx.beginPath();
+        ctx.setLineDash([]);
+        ctx.arc(700, 350, 60, startAngle + currentAngle, endAngle + currentAngle, false);
+
+        ctx.strokeStyle = "orange";
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([]);
+        ctx.arc(700, 350, 40, endAngle - currentAngle, startAngle - currentAngle + 2.5, false);
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+
+
+        ctx.beginPath();
+        ctx.setLineDash([]);
+        ctx.lineDashOffset = 1;
+        ctx.arc(700, 350, 20, currentAngle-endAngle, currentAngle - startAngle, false);
+
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = '6';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([]);
+        ctx.lineDashOffset = 2;
+        ctx.arc(700, 350, 80, currentAngle - endAngle, currentAngle - startAngle, false);
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(700, 350, 100, endAngle - currentAngle, startAngle - currentAngle + .5, false);
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(700, 350, 120, currentAngle + endAngle + 1, currentAngle + startAngle + 1, false);
+        ctx.strokeStyle = '#701be0';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        //circle2
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.arc(700, 75, 60, startAngle + currentAngle, endAngle + currentAngle, false);
+
+        ctx.strokeStyle = "orange";
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.arc(700, 75, 40, endAngle - currentAngle, startAngle - currentAngle + 2.5, false);
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+
+
+        ctx.beginPath();
+        ctx.setLineDash([4,16]);
+        ctx.lineDashOffset = 1;
+        ctx.arc(700, 75, 20, currentAngle-endAngle, currentAngle - startAngle, false);
+
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = '6';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.arc(700, 75, 80, currentAngle - endAngle, currentAngle - startAngle, false);
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.arc(700, 75, 100, endAngle - currentAngle, startAngle - currentAngle + .5, false);
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.arc(700, 75, 120, currentAngle + endAngle + 1, currentAngle + startAngle + 1, false);
+        ctx.strokeStyle = '#701be0';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+
+        //circle3
+        ctx.beginPath();
+        ctx.setLineDash([]);
+        ctx.lineDashOffset = 1;
+        ctx.arc(700, 625, 60, startAngle + currentAngle, endAngle + currentAngle, false);
+
+        ctx.strokeStyle = "orange";
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 1;
+        ctx.arc(700, 625, 40, endAngle - currentAngle, startAngle - currentAngle + 2.5, false);
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+
+
+        ctx.beginPath();
+        ctx.setLineDash([]);
+        ctx.lineDashOffset = 1;
+        ctx.arc(700, 625, 20, currentAngle-endAngle, currentAngle - startAngle, false);
+
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = '6';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 1;
+        ctx.arc(700, 625, 80, currentAngle - endAngle, currentAngle - startAngle, false);
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([]);
+        ctx.lineDashOffset = 2;
+        ctx.arc(700, 625, 100, endAngle - currentAngle, startAngle - currentAngle + .5, false);
+        ctx.strokeStyle = 'green';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.arc(700, 625, 120, currentAngle + endAngle + 1, currentAngle + startAngle + 1, false);
+        ctx.strokeStyle = '#701be0';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+
+        //square
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(185, 345, 20, 20);
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(175, 335, 40, 40);
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(165, 325, 60, 60);
+        ctx. strokeStyle = 'orange';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(155, 315, 80, 80);
+        ctx. strokeStyle = 'red';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(145, 305, 100, 100);
+        ctx. strokeStyle = 'green';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(135, 295, 120, 120);
+        ctx. strokeStyle = 'purple';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        //square2
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(1085, 345, 20, 20);
+        ctx.strokeStyle = 'yellow';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(1075, 335, 40, 40);
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(1065, 325, 60, 60);
+        ctx. strokeStyle = 'orange';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(1055, 315, 80, 80);
+        ctx. strokeStyle = 'red';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(1045, 305, 100, 100);
+        ctx. strokeStyle = 'green';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.setLineDash([4, 16]);
+        ctx.lineDashOffset = 2;
+        ctx.rect(1035, 295, 120, 120);
+        ctx. strokeStyle = 'purple';
+        ctx.lineWidth = 6.0;
+        ctx.stroke();
+
+        currentAngle += diff * 0.001;
+
+        currentAngle %= 2 * Math.PI;
+
+        //document.getElementById("angle").innerHTML=currentAngle;
+        raf(Update);
+    }
+    raf(Update);
+</script>

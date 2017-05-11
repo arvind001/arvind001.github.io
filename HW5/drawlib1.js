@@ -22,7 +22,8 @@
 	 if (z !== undefined)
 	    this.cursor.z = z;
       }
-      canvas.onmousedown = function(e) { this.setCursor(e.clientX, e.clientY, 1); }
+      //canvas.onmousedown = function(e) { this.setCursor(e.clientX, e.clientY, 1); }
+      //canvas.onmousedown = function(e) {this.clearRect(0, 0, canvas.width, canvas.height); }
       canvas.onmousemove = function(e) { this.setCursor(e.clientX, e.clientY   ); }
       canvas.onmouseup   = function(e) { this.setCursor(e.clientX, e.clientY, 0); }
    }
